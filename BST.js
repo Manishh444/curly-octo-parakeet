@@ -64,5 +64,27 @@ class BST {
           }
         }
       
-  }
+    }
+    
+    BFS() {
+        //BFS return array with all the nodes of BST
+        // Step 1 create a variable to start with
+        let currentNode = this.root;
+        // create an array to store nodes
+        let queue = [];
+        // create a result array to return all the node
+        let result = []
+        // add node to queue
+        queue.push(currentNode)
+        // and add it to result array
+
+        while (queue.length) {
+            currentNode = queue.shift();
+            result.push(currentNode.value);
+            if (currentNode.left) queue.push(currentNode.left);
+            if (currentNode.right) queue.push(currentNode.right);
+        }
+        return result;
+
+    }
 }
